@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Commit Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: left;
+            max-width: 800px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+            margin: 10px 0;
+        }
+        strong {
+            color: #007BFF;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 10px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Commit Detail</h1>
+
+    <div>
+        <p><strong>Hash:</strong> <span th:text="${commit.hash}"></span></p>
+        <p><strong>Timestamp:</strong> <span th:text="${commit.timestamp}"></span></p>
+        <p><strong>Message:</strong> <span th:text="${commit.message}"></span></p>
+        <p><strong>Author:</strong> <span th:text="${commit.author}"></span></p>
+        <p><strong>Patch:</strong></p>
+        <pre th:text="${commit.patch}"></pre>
+    </div>
+</div>
+</body>
+</html>

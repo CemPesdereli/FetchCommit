@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Developer Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            width: 60%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        h2 {
+            color: #333;
+            margin: 20px 0 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${developer.username}">Developer</h1>
+    <p th:text="'Email: ' + ${developer.email}">Email</p>
+    <h2>Commits</h2>
+    <ul>
+        <li th:each="commit : ${developer.commits}">
+            <a th:href="@{'/commit/' + ${commit.hash}}" th:text="${commit.hash}">Commit</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
